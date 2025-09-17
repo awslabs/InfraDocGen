@@ -1,0 +1,236 @@
+/* Resource Dependencies Styling */
+.resource-dependencies-container {
+  height: 100%;
+  width: 100%;
+}
+
+.dependency-graph-container {
+  height: 600px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+/* React Flow Node Styling */
+.resource-node {
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  min-width: 120px !important;
+  min-height: 60px !important;
+  padding: 10px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.resource-node:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  /* Removed transform to prevent node movement on hover */
+}
+
+.resource-network {
+  background-color: #e3f2fd !important;
+  border: 2px solid #1976d2 !important;
+  color: #1976d2 !important;
+}
+
+.resource-compute {
+  background-color: #f3e5f5 !important;
+  border: 2px solid #7b1fa2 !important;
+  color: #7b1fa2 !important;
+}
+
+.resource-storage {
+  background-color: #e8f5e8 !important;
+  border: 2px solid #388e3c !important;
+  color: #388e3c !important;
+}
+
+.resource-database {
+  background-color: #fff3e0 !important;
+  border: 2px solid #f57c00 !important;
+  color: #f57c00 !important;
+}
+
+.resource-security {
+  background-color: #ffebee !important;
+  border: 2px solid #d32f2f !important;
+  color: #d32f2f !important;
+}
+
+.resource-other {
+  background-color: #f5f5f5 !important;
+  border: 2px solid #616161 !important;
+  color: #616161 !important;
+}
+
+/* React Flow Edge Styling */
+.react-flow__edge-path {
+  stroke-width: 2px;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+}
+
+@keyframes dashdraw {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* React Flow Controls */
+.react-flow__controls {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__controls-button {
+  border: none;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.react-flow__controls-button:hover {
+  background: #f5f5f5;
+}
+
+/* React Flow MiniMap */
+.react-flow__minimap {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+/* Legend Panel */
+.dependency-legend {
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+}
+
+.dependency-legend-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.dependency-legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.dependency-legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Statistics Cards */
+.dependency-stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.dependency-stats .awsui-util-key-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Resource Cards */
+.resource-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading State */
+.dependency-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+/* Placeholder for React Flow */
+.react-flow-placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  color: #666;
+  border-radius: 8px;
+  text-align: center;
+  padding: 40px;
+}
+
+.react-flow-placeholder code {
+  background-color: #e8e8e8;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dependency-graph-container {
+    height: 400px;
+  }
+  
+  .resource-node {
+    min-width: 100px !important;
+    min-height: 50px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dependency-graph-container {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+  
+  .react-flow-placeholder {
+    background-color: #2d2d2d;
+    color: #ccc;
+  }
+  
+  .dependency-legend {
+    background-color: #2d2d2d;
+    color: white;
+    border-color: #555;
+  }
+}
+
+.react-flow__node.selected {
+  filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.7));
+}
+
+.highlighted-edge {
+  z-index: 5 !important;
+  filter: drop-shadow(0 0 2px rgba(255, 102, 0, 0.7));
+}
+
+/* Add a pulsing animation for highlighted edges */
+@keyframes pulse {
+  0% { stroke-opacity: 0.6; }
+  50% { stroke-opacity: 1; }
+  100% { stroke-opacity: 0.6; }
+}
+
+.highlighted-edge path {
+  animation: pulse 1.5s infinite ease-in-out;
+}

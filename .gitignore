@@ -1,0 +1,8 @@
+venv
+__pycache__
+results.json
+
+# Cache directories
+reports_files/
+*.log
+/.idea/

@@ -1,0 +1,33 @@
+.credentials-container{
+    margin:5% 20%;
+}
+[data-id="btn-container"]{
+    background-color: #FF9900 !important;
+    border-color:#FF9900 !important;
+    color:black !important;
+}
+[data-id="btn-container"]:hover{
+    background-color: #EC7211 !important;
+    border-color: #EC7211 !important;
+    color: black !important;
+}
+[data-id="btn-container-disabled"]{
+    background-color: #ff9900a3 !important;
+    border-color:#ff9900a3 !important;
+    color:#8c8c93 !important;
+}
+
+/* Prerequisites box styling */
+.code-block {
+    background-color: #232f3e;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: white;
+    font-family: monospace;
+    display: inline-block;
+}
+
+.prerequisites-container {
+    margin-bottom: 20px;
+}
