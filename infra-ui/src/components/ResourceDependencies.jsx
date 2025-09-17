@@ -94,13 +94,8 @@ const ResourceDependencies = () => {
 
   const bedrockRegionOptions = [
     { value: "us-east-1", label: "US East (N. Virginia) - us-east-1" },
+    { value: "us-east-2", label: "US East (Ohio) - us-east-2" },
     { value: "us-west-2", label: "US West (Oregon) - us-west-2" },
-    { value: "ap-south-1", label: "Asia Pacific (Mumbai) - ap-south-1" },
-    {
-      value: "ap-southeast-1",
-      label: "Asia Pacific (Singapore) - ap-southeast-1",
-    },
-    { value: "ap-northeast-1", label: "Asia Pacific (Tokyo) - ap-northeast-1" },
     { value: "eu-central-1", label: "Europe (Frankfurt) - eu-central-1" },
     { value: "eu-west-1", label: "Europe (Ireland) - eu-west-1" },
     { value: "eu-west-3", label: "Europe (Paris) - eu-west-3" },
@@ -1177,9 +1172,7 @@ const ResourceDependencies = () => {
               </li>
             </ul>
             <div>{/* # nosemgrep: jsx-not-internationalized */}
-              <strong>{/* # nosemgrep: jsx-not-internationalized */}Supported Regions:</strong> US East (N. Virginia), US West
-              (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), Europe
-              (Frankfurt), Europe (Ireland), Europe (Paris)
+              <strong>{/* # nosemgrep: jsx-not-internationalized */}Supported Regions:</strong>  US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Europe (Paris)
             </div>
           </SpaceBetween>
         </Alert>

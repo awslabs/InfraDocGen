@@ -195,7 +195,7 @@ const InfrastructureAnalysis = () => {
               <li>{/* # nosemgrep: jsx-not-internationalized */}Claude 3.7 Sonnet model must be available and activated in the Bedrock console</li>
             </ul>
             <div>
-              <strong>{/* # nosemgrep: jsx-not-internationalized */}Supported Regions:</strong> US East (N. Virginia), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), Europe (Frankfurt), Europe (Ireland), Europe (Paris)
+              <strong>{/* # nosemgrep: jsx-not-internationalized */}Supported Regions:</strong> US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Europe (Paris)
             </div>
           </SpaceBetween>
         </Alert>
@@ -354,7 +354,7 @@ const InfrastructureAnalysis = () => {
               <div>
                 <Box variant="awsui-key-label">{/* # nosemgrep: jsx-not-internationalized */}Model Used</Box>
                 <Badge color="green">
-                  {analysisResult.model_used?.split(".")[1] || "Claude 3.7 Sonnet"}
+                  {analysisResult.model_used || "Claude 3.7 Sonnet"}
                 </Badge>
               </div>
               <div>
