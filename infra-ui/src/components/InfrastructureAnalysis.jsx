@@ -190,9 +190,9 @@ const InfrastructureAnalysis = () => {
               <strong>{/* # nosemgrep: jsx-not-internationalized */}Amazon Bedrock Claude Model Required:</strong>
             </div>
             <ul style={{ marginLeft: "20px", marginBottom: "10px" }}>
-              <li>{/* # nosemgrep: jsx-not-internationalized */}Ensure Amazon Bedrock Claude 3.7 Sonnet model is enabled in your selected region</li>
+              <li>{/* # nosemgrep: jsx-not-internationalized */}Ensure Amazon Bedrock Claude Sonnet 4.6 model is enabled in your selected region</li>
               <li>{/* # nosemgrep: jsx-not-internationalized */}Your AWS credentials must have access to Amazon Bedrock service</li>
-              <li>{/* # nosemgrep: jsx-not-internationalized */}Claude 3.7 Sonnet model must be available and activated in the Bedrock console</li>
+              <li>{/* # nosemgrep: jsx-not-internationalized */}Claude Sonnet 4.6 model must be available and activated in the Bedrock console</li>
             </ul>
             <div>
               <strong>{/* # nosemgrep: jsx-not-internationalized */}Supported Regions:</strong> US East (N. Virginia), US East (Ohio), US West (Oregon), Europe (Frankfurt), Europe (Ireland), Europe (Paris)
@@ -221,7 +221,7 @@ const InfrastructureAnalysis = () => {
 
             <FormField
               label="Bedrock Region"
-              description="Required: Select the AWS region where Amazon Bedrock Claude 3.7 Sonnet model is enabled"
+              description="Required: Select the AWS region where Amazon Bedrock Claude Sonnet 4.6 model is enabled"
             >
               <Select
                 selectedOption={bedrockRegion}
@@ -354,7 +354,7 @@ const InfrastructureAnalysis = () => {
               <div>
                 <Box variant="awsui-key-label">{/* # nosemgrep: jsx-not-internationalized */}Model Used</Box>
                 <Badge color="green">
-                  {analysisResult.model_used || "Claude 3.7 Sonnet"}
+                  {analysisResult.model_used || "Claude Sonnet 4.6"}
                 </Badge>
               </div>
               <div>

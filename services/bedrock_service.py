@@ -29,7 +29,7 @@ class BedrockAnalysisService:
         )
         
         self.bedrock_client = session.client('bedrock-runtime', region_name=region, config=config)
-        self.model_id = 'us.anthropic.claude-3-7-sonnet-20250219-v1:0'
+        self.model_id = 'us.anthropic.claude-sonnet-4-6'
         
         # Initialize chunking components
         self.chunker = InfrastructureChunker()
@@ -297,7 +297,7 @@ class BedrockAnalysisService:
                 else:
                     # Non-rate-limit error, don't retry
                     total_api_duration = time.time() - api_call_start_time
-                    logger.warning(f"❌ Non-rate-limit error after {single_call_duration:.1f}s (total: {total_api_duration:.1f}s): {error_msg}")
+                    logger.error(f"❌ Bedrock error type={type(e).__name__} after {single_call_duration:.1f}s (total: {total_api_duration:.1f}s): {error_msg}")
                     raise e
         
         total_api_duration = time.time() - api_call_start_time

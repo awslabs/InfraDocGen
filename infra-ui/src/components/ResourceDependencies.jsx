@@ -1126,7 +1126,7 @@ const ResourceDependencies = () => {
     <SpaceBetween size="l">
       <Header
         variant="h1"
-        description="AI-powered analysis of resource dependencies and relationships using Bedrock Claude 3.7 Sonnet to analyze resource-based policies and configurations"
+        description="AI-powered analysis of resource dependencies and relationships using Bedrock Claude Sonnet 4.6 to analyze resource-based policies and configurations"
         actions={
           <SpaceBetween direction="horizontal" size="xs">
             {selectedResourceId && (
@@ -1156,18 +1156,18 @@ const ResourceDependencies = () => {
         <Alert type="info" header="Prerequisites">
           <SpaceBetween size="s">
             <div>{/* # nosemgrep: jsx-not-internationalized */}
-              <strong>{/* # nosemgrep: jsx-not-internationalized */}Amazon Bedrock Claude 3.7 Sonnet Model Required:</strong>
+              <strong>{/* # nosemgrep: jsx-not-internationalized */}Amazon Bedrock Claude Sonnet 4.6 Model Required:</strong>
             </div>
             <ul style={{ marginLeft: "20px", marginBottom: "10px" }}>
               <li>{/* # nosemgrep: jsx-not-internationalized */}
-                Ensure Amazon Bedrock Claude 3.7 Sonnet model is enabled in your selected
+                Ensure Amazon Bedrock Claude Sonnet 4.6 model is enabled in your selected
                 region
               </li>
               <li>{/* # nosemgrep: jsx-not-internationalized */}
                 Your AWS credentials must have access to Amazon Bedrock service
               </li>
               <li>{/* # nosemgrep: jsx-not-internationalized */}
-                Claude 3.7 Sonnet model must be available and activated in the Bedrock
+                Claude Sonnet 4.6 model must be available and activated in the Bedrock
                 console
               </li>
             </ul>
@@ -1198,7 +1198,7 @@ const ResourceDependencies = () => {
             </FormField>
             <FormField
               label="Bedrock Region"
-              description="Required: Select the AWS region where Amazon Bedrock Claude 3.7 Sonnet model is enabled"
+              description="Required: Select the AWS region where Amazon Bedrock Claude Sonnet 4.6 model is enabled"
             >
               <Select
                 selectedOption={bedrockRegion}
@@ -1417,7 +1417,7 @@ const ResourceDependencies = () => {
       )}
 
       {/* Dependency Graph - Only show when a resource is selected */}
-      {selectedResourceId && dependencies && (
+      {selectedResourceId && dependencies && nodes.length > 0 && (
         <Container data-testid="dependency-graph">
           <Header
             variant="h2"

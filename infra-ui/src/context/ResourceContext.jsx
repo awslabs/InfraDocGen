@@ -38,7 +38,6 @@ export const ResourceProvider = ({ children }) => {
 
     try {
       // Replace with your actual API endpoint
-      console.log("Sending credentials to API:", credentials);
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/infra-doc/generate`,
         credentials
@@ -117,7 +116,7 @@ export const ResourceProvider = ({ children }) => {
         setAnalysisProgress(100);
         return { success: true, result };
       } else {
-        throw new Error(result.error || "Analysis failed");
+        throw new Error(result.message || result.error || "Analysis failed");
       }
     } catch (err) {
       if (err.name === "AbortError") {
@@ -216,7 +215,7 @@ export const ResourceProvider = ({ children }) => {
         }
       );
       // Check if response is ok
-      if (!response) {
+      if (!response.ok) {
         const errorText = await response.text();
         console.error("API Response Error:", errorText);
         throw new Error(

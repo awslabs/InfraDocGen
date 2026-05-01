@@ -215,19 +215,26 @@ The solution extracts and analyzes resource-based policies for the following ser
 
 ### Supported Regions
 
-The solution uses **us-east-1** as the default region for Amazon Bedrock.
+The solution uses **us-east-1** as the default region for Amazon Bedrock API calls. The web UI also allows selecting any of these regions (use the same region for API calls and for troubleshooting in the console; IAM must allow Bedrock in that region):
+
+- **US East (N. Virginia)** — `us-east-1` (default)
+- **US East (Ohio)** — `us-east-2`
+- **US West (Oregon)** — `us-west-2`
+- **Europe (Frankfurt)** — `eu-central-1`
+- **Europe (Ireland)** — `eu-west-1`
+- **Europe (Paris)** — `eu-west-3`
 
 ### Model Configuration
 
-The solution uses **Claude 3.7 Sonnet** (us.anthropic.claude-3-7-sonnet-20250219-v1:0) as the default model.
+The solution uses **Claude Sonnet 4.6** (us.anthropic.claude-sonnet-4-6) as the default model.
 
 ### Prerequisites
 
-Before using the solution, ensure Claude 3.7 Sonnet is enabled in us-east-1:
-1. Go to Amazon Bedrock console in us-east-1
-2. Navigate to "Model access" in the left sidebar
-3. Request access to "Claude 3.7 Sonnet" if not already enabled
-4. Wait for approval (usually immediate for most accounts)
+AWS has retired the old **Model access** page. **Serverless foundation models** are generally available in commercial regions and can be used without manually activating each model there; the first **invoke** (or `Converse` API use) in an account/region is often when usage starts. See the [Bedrock documentation](https://docs.aws.amazon.com/bedrock/) and **Model catalog** in the console for the current list.
+
+1. **Anthropic (Claude) and Marketplace** — For **Anthropic** models, first-time users in an account may need to submit **use case details** before the model is usable. **Models from AWS Marketplace** may require a user with **AWS Marketplace** permissions to **invoke the model once** to enable it account-wide. If InfraDocGen returns model-access errors, use the **Model catalog** and **Playground** in the **same** region as the app (see Supported Regions) to complete any prompts, then retry.
+
+2. **AWS credentials and IAM** — The identity used by the backend must be allowed to call **Amazon Bedrock** (e.g. `bedrock:InvokeModel` or `bedrock:Converse` for your model or inference profile). **IAM** and **Service Control Policies** can still **deny** access. If calls fail with access denied, update policies or use credentials that are allowed to use Bedrock in that region.
 
 ---
 
@@ -374,7 +381,7 @@ def invoke_model_with_guardrails(prompt, guardrail_id, guardrail_version):
 
     response = bedrock_runtime.invoke_model(
         body=body,
-        modelId='us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+        modelId='us.anthropic.claude-sonnet-4-6',
         accept='application/json',
         contentType='application/json',
         guardrailIdentifier=guardrail_id,
@@ -516,7 +523,7 @@ Add these permissions to your IAM policy:
                 "bedrock:ListGuardrails"
             ],
             "Resource": [
-                "arn:aws:bedrock:*:*:foundation-model/anthropic.claude-3-7-sonnet-*",
+                "arn:aws:bedrock:*:*:foundation-model/anthropic.claude-sonnet-4-6",
                 "arn:aws:bedrock:*:*:guardrail/*"
             ]
         }
